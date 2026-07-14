@@ -1,0 +1,35 @@
+[
+  {
+    "input": "What is Python?",
+
+    "expected_output": "Python is a high-level programming language used for web development, automation, AI, and data science.",
+
+    "retrieval_context": [
+      "Python is a high-level interpreted programming language.",
+      "Python supports object-oriented programming.",
+      "Python is widely used for AI, automation, scripting, web development and data science."
+    ]
+  },
+  {
+    "input": "What is AWS?",
+
+    "expected_output": "AWS is Amazon Web Services, a cloud computing platform offering compute, storage, networking, databases, AI and analytics services.",
+
+    "retrieval_context": [
+      "AWS stands for Amazon Web Services.",
+      "AWS provides EC2, S3, Lambda, RDS, IAM and VPC services.",
+      "AWS is one of the world's leading cloud providers."
+    ]
+  },
+  {
+    "input": "What is Docker?",
+
+    "expected_output": "Docker is a containerization platform used to package and deploy applications consistently across environments.",
+
+    "retrieval_context": [
+      "Docker packages applications into containers.",
+      "Containers include application code and dependencies.",
+      "Docker provides consistent deployment across environments."
+    ]
+  }
+]
