@@ -1,25 +1,12 @@
-from models.model import OpenRouterModel
-
-print("Imported OpenRouterModel from:", OpenRouterModel.__module__)
-
-model = OpenRouterModel()
-
-
 from deepeval import assert_test
-from deepeval.metrics import AnswerRelevancyMetric
 from deepeval.test_case import LLMTestCase
 
-from models.model import OpenRouterModel
-
-model = OpenRouterModel()
+from metrics.answer_relevancy import get_answer_relevancy_metric
 
 
 def test_answer_relevancy():
 
-    metric = AnswerRelevancyMetric(
-        threshold=0.7,
-        model=model
-    )
+    metric = get_answer_relevancy_metric()
 
     test_case = LLMTestCase(
         input="What is AWS?",

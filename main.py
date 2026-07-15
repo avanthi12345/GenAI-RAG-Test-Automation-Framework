@@ -1,7 +1,20 @@
-from utils.dataset_loader import DatasetLoader
+from fastapi import FastAPI
 
-dataset = DatasetLoader.load_dataset(
-    "datasets/single_turn/goldens.json"
-)
+app = FastAPI(title="GenAI QA Mock API")
 
-print(dataset)
+
+@app.get("/")
+def home():
+    return {
+        "message": "GenAI QA Mock API is running successfully!"
+    }
+
+
+@app.post("/chat")
+def chat(request: dict):
+    question = request.get("question", "")
+
+    return {
+        "question": question,
+        "answer": f"Sample response for: {question}"
+    }

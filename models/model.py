@@ -1,17 +1,19 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
-from deepeval.models.base_model import DeepEvalBaseLLM
 from openai import OpenAI
+from deepeval.models.base_model import DeepEvalBaseLLM
 
-load_dotenv()
+# Load .env
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 
 class OpenRouterModel(DeepEvalBaseLLM):
 
     def __init__(self):
         self.model_name = os.getenv("MODEL")
-
         self.client = OpenAI(
             api_key=os.getenv("API_KEY"),
             base_url=os.getenv("BASE_URL")
@@ -21,14 +23,28 @@ class OpenRouterModel(DeepEvalBaseLLM):
         return self.client
 
     def generate(self, prompt: str, schema=None):
+
+        messages = [
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+
+        # DeepEval requests structured output
+        if schema is not None:
+            response = self.client.beta.chat.completions.parse(
+                model=self.model_name,
+                messages=messages,
+                response_format=schema
+            )
+            return response.choices[0].message.parsed
+
+        # Normal text generation
         response = self.client.chat.completions.create(
             model=self.model_name,
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ]
+            messages=messages,
+            temperature=0
         )
 
         return response.choices[0].message.content
@@ -38,3 +54,6 @@ class OpenRouterModel(DeepEvalBaseLLM):
 
     def get_model_name(self):
         return self.model_name
+
+
+model = OpenRouterModel()
