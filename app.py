@@ -1,60 +1,78 @@
-from api.api_client import APIClient
-from datasets.dataset_loader import DatasetLoader
-from metrics.evaluator import Evaluator
-from models.openrouter_model import OpenRouterModel
-
-from metrics.answer_relevancy import get_answer_relevancy_metric
-from metrics.faithfulness import get_faithfulness_metric
-from metrics.hallucination import get_hallucination_metric
-from metrics.bias import get_bias_metric
-from metrics.toxicity import get_toxicity_metric
-from metrics.geval import get_geval_metric
+from metrics import answer_relevancy
+from metrics import faithfulness
+from metrics import hallucination
+from metrics import bias
+from metrics import toxicity
+from metrics import geval
+from metrics import contextual_precision
+from metrics import contextual_recall
+from metrics import contextual_relevancy
 
 
-def api_health_check():
-    """
-    Check whether the API is reachable.
-    """
+def main():
 
-    client = APIClient()
-
-    response = client.get("/")
-
-    print("=" * 60)
-    print("API Health Check")
-    print("=" * 60)
-    print(f"Status Code : {response.status_code}")
-    print(f"Response    : {response.text}")
-
-
-def run_deepeval():
-    """
-    Execute all supported DeepEval metrics.
-    """
-
-    dataset = DatasetLoader(
-        "datasets/goldens.json"
-    ).load()
-
-    model = OpenRouterModel()
+    print("=" * 80)
+    print("        GenAI QA Automation Framework")
+    print("=" * 80)
 
     metrics = [
-        get_answer_relevancy_metric(),
-        get_faithfulness_metric(),
-        get_hallucination_metric(),
-        get_bias_metric(),
-        get_toxicity_metric(),
-        get_geval_metric()
+
+        ("Answer Relevancy", answer_relevancy.run),
+
+        ("Faithfulness", faithfulness.run),
+
+        ("Hallucination", hallucination.run),
+
+        ("Bias", bias.run),
+
+        ("Toxicity", toxicity.run),
+
+        ("GEval", geval.run),
+
+        ("Contextual Precision", contextual_precision.run),
+
+        ("Contextual Recall", contextual_recall.run),
+
+        ("Contextual Relevancy", contextual_relevancy.run)
+
     ]
 
-    evaluator = Evaluator(dataset, model)
-    evaluator.evaluate(metrics)
+    passed = 0
+    failed = 0
+
+    for metric_name, metric_runner in metrics:
+
+        print("\n")
+        print("=" * 80)
+        print(f"Running : {metric_name}")
+        print("=" * 80)
+
+        try:
+
+            metric_runner()
+
+            print(f"\n✅ {metric_name} Completed Successfully")
+
+            passed += 1
+
+        except Exception as e:
+
+            print(f"\n❌ {metric_name} Failed")
+            print(e)
+
+            failed += 1
+
+    print("\n")
+    print("=" * 80)
+    print("Execution Summary")
+    print("=" * 80)
+
+    print(f"Total Metrics : {len(metrics)}")
+    print(f"Passed        : {passed}")
+    print(f"Failed        : {failed}")
+
+    print("=" * 80)
 
 
 if __name__ == "__main__":
-
-    # Step 1 - Verify API
-    api_health_check()
-
-    # Step 2 - Run DeepEval
-    run_deepeval()
+    main()
