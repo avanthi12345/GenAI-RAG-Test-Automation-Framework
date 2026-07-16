@@ -1,18 +1,18 @@
 from datasets.dataset_loader import DatasetLoader
+from metrics.contextual_recall import get_contextual_recall_metric
 from metrics.evaluator import Evaluator
-from metrics.hallucination import get_hallucination_metric
 from models.openrouter_model import OpenRouterModel
 
 
-def test_hallucination():
+def test_contextual_recall():
 
     dataset = DatasetLoader(
-        "datasets/single_turn/goldens.json"
+        "datasets/goldens.json"
     ).load()
 
     model = OpenRouterModel()
 
-    metric = get_hallucination_metric()
+    metric = get_contextual_recall_metric()
 
     evaluator = Evaluator(dataset, model)
     evaluator.evaluate([metric])

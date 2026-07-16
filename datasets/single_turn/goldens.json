@@ -1,35 +1,58 @@
 [
   {
+    "id": "TC001",
     "input": "What is Python?",
-
     "expected_output": "Python is a high-level programming language used for web development, automation, AI, and data science.",
-
+    "context": [
+      "Python is a high-level interpreted programming language."
+    ],
     "retrieval_context": [
-      "Python is a high-level interpreted programming language.",
       "Python supports object-oriented programming.",
-      "Python is widely used for AI, automation, scripting, web development and data science."
+      "Python is widely used for AI and Machine Learning."
     ]
   },
   {
+    "id": "TC002",
     "input": "What is AWS?",
-
-    "expected_output": "AWS is Amazon Web Services, a cloud computing platform offering compute, storage, networking, databases, AI and analytics services.",
-
+    "expected_output": "AWS is Amazon Web Services, a cloud computing platform offering compute, storage, networking, databases, and AI services.",
+    "context": [
+      "AWS is Amazon's cloud computing platform."
+    ],
     "retrieval_context": [
-      "AWS stands for Amazon Web Services.",
-      "AWS provides EC2, S3, Lambda, RDS, IAM and VPC services.",
-      "AWS is one of the world's leading cloud providers."
+      "AWS provides EC2, S3, Lambda, RDS and many cloud services."
     ]
   },
   {
+    "id": "TC003",
     "input": "What is Docker?",
-
-    "expected_output": "Docker is a containerization platform used to package and deploy applications consistently across environments.",
-
+    "expected_output": "Docker is a containerization platform used to package and deploy applications consistently.",
+    "context": [
+      "Docker packages applications into containers."
+    ],
     "retrieval_context": [
-      "Docker packages applications into containers.",
-      "Containers include application code and dependencies.",
-      "Docker provides consistent deployment across environments."
+      "Docker containers are lightweight and portable."
+    ]
+  },
+  {
+    "id": "TC004",
+    "input": "What is Kubernetes?",
+    "expected_output": "Kubernetes is an orchestration platform used to deploy, scale, and manage containerized applications.",
+    "context": [
+      "Kubernetes automates container deployment."
+    ],
+    "retrieval_context": [
+      "Kubernetes manages Docker containers across clusters."
+    ]
+  },
+  {
+    "id": "TC005",
+    "input": "What is Machine Learning?",
+    "expected_output": "Machine Learning is a branch of Artificial Intelligence that enables systems to learn from data without explicit programming.",
+    "context": [
+      "Machine Learning is a subset of AI."
+    ],
+    "retrieval_context": [
+      "Machine Learning uses algorithms and training data to make predictions."
     ]
   }
 ]

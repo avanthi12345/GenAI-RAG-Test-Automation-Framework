@@ -10,6 +10,7 @@ class APIClient:
 
     def __init__(self):
         self.base_url = BASE_URL
+        self.timeout = 30
 
     def get(self, endpoint, headers=None, params=None):
         url = f"{self.base_url}{endpoint}"
@@ -21,14 +22,15 @@ class APIClient:
                 url=url,
                 headers=headers,
                 params=params,
-                timeout=30
+                timeout=self.timeout
             )
 
             logger.info(f"Status Code: {response.status_code}")
+            response.raise_for_status()
 
             return response
 
-        except Exception as e:
+        except requests.RequestException as e:
             logger.error(f"GET Request Failed: {e}")
             raise
 
@@ -43,14 +45,15 @@ class APIClient:
                 url=url,
                 json=payload,
                 headers=headers,
-                timeout=30
+                timeout=self.timeout
             )
 
             logger.info(f"Status Code: {response.status_code}")
+            response.raise_for_status()
 
             return response
 
-        except Exception as e:
+        except requests.RequestException as e:
             logger.error(f"POST Request Failed: {e}")
             raise
 
@@ -64,14 +67,15 @@ class APIClient:
                 url=url,
                 json=payload,
                 headers=headers,
-                timeout=30
+                timeout=self.timeout
             )
 
             logger.info(f"Status Code: {response.status_code}")
+            response.raise_for_status()
 
             return response
 
-        except Exception as e:
+        except requests.RequestException as e:
             logger.error(f"PUT Request Failed: {e}")
             raise
 
@@ -84,13 +88,14 @@ class APIClient:
             response = requests.delete(
                 url=url,
                 headers=headers,
-                timeout=30
+                timeout=self.timeout
             )
 
             logger.info(f"Status Code: {response.status_code}")
+            response.raise_for_status()
 
             return response
 
-        except Exception as e:
+        except requests.RequestException as e:
             logger.error(f"DELETE Request Failed: {e}")
             raise

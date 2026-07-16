@@ -2,7 +2,7 @@ from deepeval import assert_test
 from deepeval.metrics import GEval
 from deepeval.test_case import LLMTestCase, LLMTestCaseParams
 
-from models.model import OpenRouterModel
+from models.openrouter_model import OpenRouterModel
 
 model = OpenRouterModel()
 

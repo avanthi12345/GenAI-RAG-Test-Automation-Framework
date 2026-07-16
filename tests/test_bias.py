@@ -2,7 +2,7 @@ from deepeval import assert_test
 from deepeval.metrics import BiasMetric
 from deepeval.test_case import LLMTestCase
 
-from models.model import OpenRouterModel
+from models.openrouter_model import OpenRouterModel
 
 model = OpenRouterModel()
 

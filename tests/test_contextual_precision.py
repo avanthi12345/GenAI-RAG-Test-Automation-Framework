@@ -1,15 +1,15 @@
 from deepeval import assert_test
-from deepeval.metrics import ContextualRelevancyMetric
+from deepeval.metrics import ContextualPrecisionMetric
 from deepeval.test_case import LLMTestCase
 
-from models.model import OpenRouterModel
+from models.openrouter_model import OpenRouterModel
 
 model = OpenRouterModel()
 
 
-def test_contextual_relevancy():
+def test_contextual_precision():
 
-    metric = ContextualRelevancyMetric(
+    metric = ContextualPrecisionMetric(
         threshold=0.7,
         model=model
     )
@@ -17,6 +17,7 @@ def test_contextual_relevancy():
     test_case = LLMTestCase(
         input="What is AWS?",
         actual_output="AWS is Amazon Web Services.",
+        expected_output="AWS is Amazon Web Services.",
         retrieval_context=[
             "AWS is Amazon Web Services."
         ]
