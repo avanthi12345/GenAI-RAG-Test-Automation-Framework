@@ -23,9 +23,11 @@ def run():
     Runs Answer Relevancy evaluation using the dataset.
     """
 
-    dataset = DatasetLoader(
-        "datasets/single_turn/goldens.json"
-    ).load()
+    # Choose the dataset to evaluate
+    # dataset = DatasetLoader.load_positive_goldens()
+    # dataset = DatasetLoader.load_negative_goldens()
+    # dataset = DatasetLoader.load_edge_goldens()
+    dataset = DatasetLoader.load_all_goldens()
 
     model = OpenRouterModel()
 

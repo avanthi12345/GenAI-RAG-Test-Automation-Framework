@@ -24,17 +24,15 @@ class OpenRouterModel(DeepEvalBaseLLM):
         )
 
     def load_model(self):
-        """
-        Return the initialized OpenAI/OpenRouter client.
-        """
         return self.client
 
     def generate(self, prompt: str, schema=None):
         """
         Generate model response.
 
-        If DeepEval requests structured output (schema),
-        use the parse API. Otherwise return plain text.
+        If DeepEval requests structured output,
+        use the parse API.
+        Otherwise return normal text.
         """
 
         messages = [
@@ -44,21 +42,24 @@ class OpenRouterModel(DeepEvalBaseLLM):
             }
         ]
 
-        # Structured output (GEval, etc.)
+        # Structured Output (DeepEval)
         if schema is not None:
             response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
                 messages=messages,
-                response_format=schema
+                response_format=schema,
+                temperature=0,
+                max_tokens=2048
             )
 
             return response.choices[0].message.parsed
 
-        # Normal completion
+        # Normal Completion
         response = self.client.chat.completions.create(
             model=self.model_name,
             messages=messages,
-            temperature=0
+            temperature=0,
+            max_tokens=2048
         )
 
         return response.choices[0].message.content
@@ -70,7 +71,4 @@ class OpenRouterModel(DeepEvalBaseLLM):
         return self.generate(prompt, schema)
 
     def get_model_name(self):
-        """
-        Return the model name.
-        """
         return self.model_name

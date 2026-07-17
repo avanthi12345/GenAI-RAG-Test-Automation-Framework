@@ -9,6 +9,9 @@ class Evaluator:
         self.model = model
 
     def build_test_cases(self):
+        """
+        Build DeepEval test cases from the EvaluationDataset.
+        """
 
         test_cases = []
 
@@ -30,6 +33,9 @@ class Evaluator:
         return test_cases
 
     def evaluate(self, metrics):
+        """
+        Execute DeepEval metrics.
+        """
 
         test_cases = self.build_test_cases()
 

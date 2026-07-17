@@ -1,0 +1,166 @@
+[
+  {
+    "name": "EDGE001",
+    "input": "Configure Advantage 2\" Group 1 with a width of exactly 24 inches and a height of 30 inches.",
+    "expected_output": "The configuration is valid because both the width and height are at the minimum supported values.",
+    "context": [
+      "Sub-product: Advantage 2\" Group 1",
+      "Minimum Width: 24 inches",
+      "Minimum Height: 30 inches"
+    ],
+    "retrieval_context": [
+      "minimumWidth: 24",
+      "minimumHeight: 30"
+    ]
+  },
+  {
+    "name": "EDGE002",
+    "input": "Configure Advantage 2\" Group 1 with a width of exactly 96 inches and a height of 84 inches.",
+    "expected_output": "The configuration is valid because both the width and height are at the maximum supported values.",
+    "context": [
+      "Sub-product: Advantage 2\" Group 1",
+      "Maximum Width: 96 inches",
+      "Maximum Height: 84 inches"
+    ],
+    "retrieval_context": [
+      "maximumWidth: 96",
+      "maximumHeight: 84"
+    ]
+  },
+  {
+    "name": "EDGE003",
+    "input": "I selected the color 'Textured Lily'. Do I need to choose the Style Name manually?",
+    "expected_output": "No. The Style Name is automatically set to Premium based on the product configuration rule.",
+    "context": [
+      "Rule: PREMIUM STYLES",
+      "Condition: Color = Textured Lily",
+      "Action: Force Style Name = Premium"
+    ],
+    "retrieval_context": [
+      "Textured Lily",
+      "Premium Styles rule"
+    ]
+  },
+  {
+    "name": "EDGE004",
+    "input": "I selected the color 'Gravel'. Can I change the Style Name to Premium?",
+    "expected_output": "No. The Style Name is automatically set to Solids for Gravel according to the product rule.",
+    "context": [
+      "Rule: SOLID STYLES",
+      "Condition: Color = Gravel",
+      "Action: Force Style Name = Solids"
+    ],
+    "retrieval_context": [
+      "Gravel",
+      "Solid Styles rule"
+    ]
+  },
+  {
+    "name": "EDGE005",
+    "input": "I selected Continuous Valance as Yes. What additional option becomes available?",
+    "expected_output": "Selecting Continuous Valance as Yes makes the Valance Width option available.",
+    "context": [
+      "Rule: Continuous Valance",
+      "Action: Show Valance Width"
+    ],
+    "retrieval_context": [
+      "Continuous Valance",
+      "ShowOption: Valance Width"
+    ]
+  },
+  {
+    "name": "EDGE006",
+    "input": "I selected Valance Returns as Yes. Which additional options become available?",
+    "expected_output": "Selecting Valance Returns as Yes displays the Return Length and Corner Type options.",
+    "context": [
+      "Rule: Valance Returns",
+      "Actions: Show Return Length and Corner Type"
+    ],
+    "retrieval_context": [
+      "Valance Returns",
+      "ShowOption: Return Length",
+      "ShowOption: Corner Type"
+    ]
+  },
+  {
+    "name": "EDGE007",
+    "input": "I selected Return Length Override as Yes. What happens next?",
+    "expected_output": "Selecting Return Length Override as Yes makes the Return Size option available.",
+    "context": [
+      "Rule: Return Length Override",
+      "Action: Show Return Size"
+    ],
+    "retrieval_context": [
+      "Return Length Override",
+      "ShowOption: Return Size"
+    ]
+  },
+  {
+    "name": "EDGE008",
+    "input": "I selected the color 'Pecan Pie'. Which sub-product is loaded automatically?",
+    "expected_output": "The product automatically loads the sub-product 'Advantage 2\" Group 1'.",
+    "context": [
+      "Condition: Color = Pecan Pie",
+      "Action: Load Advantage 2\" Group 1"
+    ],
+    "retrieval_context": [
+      "LoadSubProduct",
+      "Advantage 2\" Group 1"
+    ]
+  },
+  {
+    "name": "EDGE009",
+    "input": "I selected the color 'Walnut Grove'. Which Style Name is applied automatically?",
+    "expected_output": "No Style Name is automatically applied unless a matching style rule exists for the selected color.",
+    "context": [
+      "Automatic Style Rules",
+      "Configured Style Mapping"
+    ],
+    "retrieval_context": [
+      "Style Rules",
+      "Walnut Grove"
+    ]
+  },
+  {
+    "name": "EDGE010",
+    "input": "I configured Advantage 2\" Group 1 using the minimum width of 24 inches and the maximum height of 84 inches. Is the configuration valid?",
+    "expected_output": "Yes. The configuration is valid because both values are within the supported boundary limits.",
+    "context": [
+      "Minimum Width: 24 inches",
+      "Maximum Height: 84 inches"
+    ],
+    "retrieval_context": [
+      "minimumWidth: 24",
+      "maximumHeight: 84"
+    ]
+  },
+  {
+    "name": "EDGE011",
+    "input": "I selected the color 'Lily'. Which Style Name will be applied automatically?",
+    "expected_output": "The Style Name will automatically be set to Solids because Lily satisfies the Solid Styles rule.",
+    "context": [
+      "Rule: SOLID STYLES",
+      "Condition: Color = Lily",
+      "Action: Force Style Name = Solids"
+    ],
+    "retrieval_context": [
+      "Color: Lily",
+      "ForceSetSelections",
+      "Style Name = Solids"
+    ]
+  },
+
+  {
+    "name": "EDGE020",
+    "input": "I selected Pecan Pie multiple times while configuring the product. Which sub-product should remain loaded?",
+    "expected_output": "The configuration should continue using the Advantage 2\" Group 1 sub-product because the same rule is applied consistently for the selected color.",
+    "context": [
+      "Condition: Color = Pecan Pie",
+      "Action: Load Advantage 2\" Group 1"
+    ],
+    "retrieval_context": [
+      "LoadSubProduct",
+      "Advantage 2\" Group 1"
+    ]
+  }
+]

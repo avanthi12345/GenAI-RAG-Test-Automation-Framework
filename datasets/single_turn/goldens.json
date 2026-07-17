@@ -1,58 +1,222 @@
 [
   {
-    "id": "TC001",
-    "input": "What is Python?",
-    "expected_output": "Python is a high-level programming language used for web development, automation, AI, and data science.",
-    "context": [
-      "Python is a high-level interpreted programming language."
-    ],
-    "retrieval_context": [
-      "Python supports object-oriented programming.",
-      "Python is widely used for AI and Machine Learning."
-    ]
+    "name": "POS001",
+    "input": "What is the product ID of Advantage Faux Wood?",
+    "expected_output": "The product ID is 40231.",
+    "context": ["Product ID: 40231"],
+    "retrieval_context": ["id: 40231"]
   },
   {
-    "id": "TC002",
-    "input": "What is AWS?",
-    "expected_output": "AWS is Amazon Web Services, a cloud computing platform offering compute, storage, networking, databases, and AI services.",
-    "context": [
-      "AWS is Amazon's cloud computing platform."
-    ],
-    "retrieval_context": [
-      "AWS provides EC2, S3, Lambda, RDS and many cloud services."
-    ]
+    "name": "POS002",
+    "input": "What is the name of product 40231?",
+    "expected_output": "The product name is Advantage Faux Wood.",
+    "context": ["Product Name: Advantage Faux Wood"],
+    "retrieval_context": ["name: Advantage Faux Wood"]
   },
   {
-    "id": "TC003",
-    "input": "What is Docker?",
-    "expected_output": "Docker is a containerization platform used to package and deploy applications consistently.",
-    "context": [
-      "Docker packages applications into containers."
-    ],
-    "retrieval_context": [
-      "Docker containers are lightweight and portable."
-    ]
+    "name": "POS003",
+    "input": "Which brand does Advantage Faux Wood belong to?",
+    "expected_output": "Advantage Faux Wood belongs to Alta.",
+    "context": ["Brand: Alta"],
+    "retrieval_context": ["Brand: Alta"]
   },
   {
-    "id": "TC004",
-    "input": "What is Kubernetes?",
-    "expected_output": "Kubernetes is an orchestration platform used to deploy, scale, and manage containerized applications.",
-    "context": [
-      "Kubernetes automates container deployment."
-    ],
-    "retrieval_context": [
-      "Kubernetes manages Docker containers across clusters."
-    ]
+    "name": "POS004",
+    "input": "Which category contains Advantage Faux Wood?",
+    "expected_output": "Advantage Faux Wood belongs to the Advantage Blinds category.",
+    "context": ["Category: Advantage Blinds"],
+    "retrieval_context": ["Category: Advantage Blinds"]
   },
   {
-    "id": "TC005",
-    "input": "What is Machine Learning?",
-    "expected_output": "Machine Learning is a branch of Artificial Intelligence that enables systems to learn from data without explicit programming.",
-    "context": [
-      "Machine Learning is a subset of AI."
-    ],
-    "retrieval_context": [
-      "Machine Learning uses algorithms and training data to make predictions."
-    ]
-  }
+    "name": "POS005",
+    "input": "What measurement unit is used?",
+    "expected_output": "The measurement unit is inches (in).",
+    "context": ["Measurement Unit: in"],
+    "retrieval_context": ["measurementUnits: in"]
+  },
+  {
+    "name": "POS006",
+    "input": "Which measurement system is used?",
+    "expected_output": "The product uses the IMPERIAL measurement system.",
+    "context": ["Measurement System: IMPERIAL"],
+    "retrieval_context": ["measurementSystem: IMPERIAL"]
+  },
+  {
+    "name": "POS007",
+    "input": "Does Advantage Faux Wood require width?",
+    "expected_output": "No. Width is not required.",
+    "context": ["hasWidth: false"],
+    "retrieval_context": ["hasWidth: false"]
+  },
+  {
+    "name": "POS008",
+    "input": "Does Advantage Faux Wood require height?",
+    "expected_output": "No. Height is not required.",
+    "context": ["hasHeight: false"],
+    "retrieval_context": ["hasHeight: false"]
+  },
+  {
+    "name": "POS009",
+    "input": "Does Advantage Faux Wood require quantity?",
+    "expected_output": "No. Quantity is not required.",
+    "context": ["hasQuantity: false"],
+    "retrieval_context": ["hasQuantity: false"]
+  },
+  {
+    "name": "POS010",
+    "input": "What is the synchronization key?",
+    "expected_output": "The synchronization key is VM_40231.",
+    "context": ["Sync Key: VM_40231"],
+    "retrieval_context": ["syncKey: VM_40231"]
+  },
+  {
+    "name": "POS011",
+    "input": "What pricing type is configured?",
+    "expected_output": "The pricing type is Free.",
+    "context": ["Price Type: Free"],
+    "retrieval_context": ["priceType: Free"]
+  },
+  {
+    "name": "POS012",
+    "input": "Is Color a required option?",
+    "expected_output": "Yes. Color is a required option.",
+    "context": ["Color - Required"],
+    "retrieval_context": ["Color.isRequired: true"]
+  },
+  {
+    "name": "POS013",
+    "input": "Is Gravel an available color?",
+    "expected_output": "Yes. Gravel is an available color.",
+    "context": ["Color: Gravel"],
+    "retrieval_context": ["Gravel"]
+  },
+  {
+    "name": "POS014",
+    "input": "Is Greek Villa available?",
+    "expected_output": "Yes. Greek Villa is available.",
+    "context": ["Color: Greek Villa"],
+    "retrieval_context": ["Greek Villa"]
+  },
+  {
+    "name": "POS015",
+    "input": "Is Lily available?",
+    "expected_output": "Yes. Lily is available.",
+    "context": ["Color: Lily"],
+    "retrieval_context": ["Lily"]
+  },
+  {
+    "name": "POS016",
+    "input": "Is Pecan Pie available?",
+    "expected_output": "Yes. Pecan Pie is available.",
+    "context": ["Color: Pecan Pie"],
+    "retrieval_context": ["Pecan Pie"]
+  },
+  {
+    "name": "POS017",
+    "input": "Is Textured Lily available?",
+    "expected_output": "Yes. Textured Lily is available.",
+    "context": ["Color: Textured Lily"],
+    "retrieval_context": ["Textured Lily"]
+  },
+  {
+    "name": "POS018",
+    "input": "Is Walnut Grove available?",
+    "expected_output": "Yes. Walnut Grove is available.",
+    "context": ["Color: Walnut Grove"],
+    "retrieval_context": ["Walnut Grove"]
+  },
+  {
+    "name": "POS019",
+    "input": "How many color options are available?",
+    "expected_output": "There are six available color options.",
+    "context": ["6 Color Options"],
+    "retrieval_context": ["Gravel, Greek Villa, Lily, Pecan Pie, Textured Lily, Walnut Grove"]
+  },
+  {
+    "name": "POS020",
+    "input": "Does Advantage Faux Wood contain sub-products?",
+    "expected_output": "Yes. It contains Advantage 2\" Group 1 and Advantage 2\" Group 2.",
+    "context": ["Sub-products available"],
+    "retrieval_context": ["Advantage 2\" Group 1", "Advantage 2\" Group 2"]
+  },
+  {
+    "name": "POS021",
+    "input": "What is the first sub-product?",
+    "expected_output": "The first sub-product is Advantage 2\" Group 1.",
+    "context": ["Sub-product: Advantage 2\" Group 1"],
+    "retrieval_context": ["name: Advantage 2\" Group 1"]
+  },
+  {
+    "name": "POS022",
+    "input": "What is the second sub-product?",
+    "expected_output": "The second sub-product is Advantage 2\" Group 2.",
+    "context": ["Sub-product: Advantage 2\" Group 2"],
+    "retrieval_context": ["name: Advantage 2\" Group 2"]
+  },
+  {
+    "name": "POS023",
+    "input": "Does the main product have a price grid?",
+    "expected_output": "No. The main product does not have a price grid.",
+    "context": ["priceGrids: []"],
+    "retrieval_context": ["priceGrids: []"]
+  },
+  {
+    "name": "POS024",
+    "input": "Does the product have a description?",
+    "expected_output": "The description is empty.",
+    "context": ["Description: Empty"],
+    "retrieval_context": ["description: \"\""]
+  },
+  {
+    "name": "POS025",
+    "input": "Does the product define dimensions?",
+    "expected_output": "No. The dimensions are null.",
+    "context": ["Dimensions: null"],
+    "retrieval_context": ["dimensions: null"]
+  },
+  {
+  "name": "POS026",
+  "input": "I selected the color Textured Lily. Which style will be selected automatically?",
+  "expected_output": "The Style Name will automatically be set to Premium because Textured Lily triggers the PREMIUM STYLES rule.",
+  "context": [
+    "Rule: PREMIUM STYLES",
+    "Color: Textured Lily",
+    "Action: Force Style Name = Premium"
+  ],
+  "retrieval_context": [
+    "Rule: PREMIUM STYLES",
+    "Condition: Color = Textured Lily",
+    "Action: ForceSetSelections -> Style Name = Premium"
+  ]
+},
+  {
+  "name": "POS027",
+  "input": "If I choose the color Gravel, what Style Name will be applied?",
+  "expected_output": "The Style Name will automatically be set to Solids because Gravel satisfies the SOLID STYLES rule.",
+  "context": [
+    "Rule: SOLID STYLES",
+    "Color: Gravel",
+    "Style Name: Solids"
+  ],
+  "retrieval_context": [
+    "Condition: Gravel",
+    "Action: ForceSetSelections -> Solids"
+  ]
+},
+  {
+  "name": "POS028",
+  "input": "I selected the color 'Pecan Pie' while configuring Advantage Faux Wood. What happens next?",
+  "expected_output": "Selecting the color 'Pecan Pie' automatically loads the sub-product 'Advantage 2\" Group 1' as part of the product configuration.",
+  "context": [
+    "Product: Advantage Faux Wood",
+    "Rule: Advantage 2\" Group 1",
+    "Condition: Color = Pecan Pie",
+    "Action: LoadSubProduct = Advantage 2\" Group 1"
+  ],
+  "retrieval_context": [
+    "Color option includes Pecan Pie",
+    "Rule triggers LoadSubProduct",
+    "Sub-product: Advantage 2\" Group 1"
+  ]
+}
 ]

@@ -1,0 +1,137 @@
+[
+  {
+    "name": "NEG001",
+    "input": "I want Advantage Faux Wood in Black.",
+    "expected_output": "Black is not an available color for Advantage Faux Wood. Available colors are Gravel, Greek Villa, Lily, Pecan Pie, Textured Lily, and Walnut Grove.",
+    "context": [
+      "Product: Advantage Faux Wood",
+      "Option: Color",
+      "Available Colors: Gravel, Greek Villa, Lily, Pecan Pie, Textured Lily, Walnut Grove"
+    ],
+    "retrieval_context": [
+      "Color option",
+      "Supported colors",
+      "Black is not a valid selection"
+    ]
+  },
+  {
+    "name": "NEG002",
+    "input": "Configure Advantage 2\" Group 1 with a width of 20 inches and a height of 40 inches.",
+    "expected_output": "The configuration is invalid because the width is below the minimum supported value of 24 inches.",
+    "context": [
+      "Sub-product: Advantage 2\" Group 1",
+      "Minimum Width: 24 inches",
+      "Maximum Width: 96 inches"
+    ],
+    "retrieval_context": [
+      "Advantage 2\" Group 1",
+      "minimumWidth: 24"
+    ]
+  },
+  {
+    "name": "NEG003",
+    "input": "Configure Advantage 2\" Group 1 with a width of 100 inches and a height of 50 inches.",
+    "expected_output": "The configuration is invalid because the width exceeds the maximum supported value of 96 inches.",
+    "context": [
+      "Sub-product: Advantage 2\" Group 1",
+      "Maximum Width: 96 inches"
+    ],
+    "retrieval_context": [
+      "Advantage 2\" Group 1",
+      "maximumWidth: 96"
+    ]
+  },
+  {
+    "name": "NEG004",
+    "input": "Configure Advantage 2\" Group 1 with a width of 40 inches and a height of 20 inches.",
+    "expected_output": "The configuration is invalid because the height is below the minimum supported value of 30 inches.",
+    "context": [
+      "Sub-product: Advantage 2\" Group 1",
+      "Minimum Height: 30 inches"
+    ],
+    "retrieval_context": [
+      "Advantage 2\" Group 1",
+      "minimumHeight: 30"
+    ]
+  },
+  {
+    "name": "NEG005",
+    "input": "Configure Advantage 2\" Group 1 with a width of 40 inches and a height of 90 inches.",
+    "expected_output": "The configuration is invalid because the height exceeds the maximum supported value of 84 inches.",
+    "context": [
+      "Sub-product: Advantage 2\" Group 1",
+      "Maximum Height: 84 inches"
+    ],
+    "retrieval_context": [
+      "Advantage 2\" Group 1",
+      "maximumHeight: 84"
+    ]
+  },
+  {
+    "name": "NEG006",
+    "input": "I selected the color Black. Which Style Name will be applied automatically?",
+    "expected_output": "No Style Name can be applied because Black is not a valid color for Advantage Faux Wood.",
+    "context": [
+      "Product: Advantage Faux Wood",
+      "Automatic style rules apply only to supported colors"
+    ],
+    "retrieval_context": [
+      "Supported colors",
+      "Style rules"
+    ]
+  },
+  {
+    "name": "NEG007",
+    "input": "I selected Textured Lily. Will the Style Name automatically change to Solids?",
+    "expected_output": "No. Selecting Textured Lily automatically sets the Style Name to Premium, not Solids.",
+    "context": [
+      "Rule: PREMIUM STYLES",
+      "Condition: Color = Textured Lily",
+      "Action: Force Style Name = Premium"
+    ],
+    "retrieval_context": [
+      "Premium Styles rule",
+      "Textured Lily → Premium"
+    ]
+  },
+  {
+    "name": "NEG008",
+    "input": "I selected Gravel. Will the Style Name automatically change to Premium?",
+    "expected_output": "No. Selecting Gravel automatically sets the Style Name to Solids.",
+    "context": [
+      "Rule: SOLID STYLES",
+      "Condition: Color = Gravel",
+      "Action: Force Style Name = Solids"
+    ],
+    "retrieval_context": [
+      "Solid Styles rule",
+      "Gravel → Solids"
+    ]
+  },
+  {
+    "name": "NEG009",
+    "input": "Can I enter a Valance Width without selecting Continuous Valance as Yes?",
+    "expected_output": "No. Valance Width becomes available only when Continuous Valance is set to Yes.",
+    "context": [
+      "Rule: Continuous Valance",
+      "Action: Show Valance Width"
+    ],
+    "retrieval_context": [
+      "Continuous Valance",
+      "ShowOption: Valance Width"
+    ]
+  },
+  {
+    "name": "NEG010",
+    "input": "Can I configure Return Length without enabling Valance Returns?",
+    "expected_output": "No. Return Length is available only after Valance Returns is set to Yes.",
+    "context": [
+      "Rule: Valance Returns",
+      "Action: Show Return Length"
+    ],
+    "retrieval_context": [
+      "Valance Returns",
+      "ShowOption: Return Length"
+    ]
+  }
+]
